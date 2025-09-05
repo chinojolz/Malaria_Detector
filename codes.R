@@ -1,3 +1,5 @@
 library(tidyverse)
-library(readr)
+
+# Create prevalence ratio
+malaria$Prevalence.Ratio <- malaria$Microscopy.N.Positive / malaria$PCR.N.Positive
 
