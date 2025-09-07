@@ -65,3 +65,5 @@ In contrast, Asia & Oceania and East Africa display intermediate ratios, reflect
 
 ### Recommendations
 These findings highlight the importance of molecular methods such as PCR for accurately capturing the true malaria burden, particularly in regions like South America where submicroscopic infections are most common.
+
+[View project on RPubs](http://rpubs.com/chinonso_okezie/1341958)
