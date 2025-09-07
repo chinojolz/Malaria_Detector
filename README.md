@@ -26,6 +26,7 @@ plot(malaria_data$PCR_Percent, malaria_data$Microscopy_Percent,
      col = "blue", pch = 19)
 abline(0, 1, lty = 2, col = "red")
 ```
+<img width="681" height="360" alt="Screenshot 2025-09-03 214153" src="https://github.com/user-attachments/assets/60df0b8a-71fc-413c-8173-3b6c55157b1a" />
 
 ### Prevalence Ration
 ```r
@@ -41,8 +42,8 @@ geom_abline(intercept = 0, slope = 1, linetype = "dotted") +
 facet_wrap(~Region) +
 labs(title = "PCR% vs Microscopy% by Region",
 x = "Microscopy %", y = "PCR %")
-
 ```
+<img width="683" height="356" alt="Screenshot 2025-09-03 221339" src="https://github.com/user-attachments/assets/8689859e-5bb2-404a-9d65-57205a6b8e47" />
 
 ### Prevalence Ratio by Region
 ```r
@@ -51,6 +52,8 @@ geom_boxplot(alpha = 0.7) +
 labs(title = "Prevalence Ratio by Region",
 x = "Region", y = "Prevalence Ratio") 
 ```
+<img width="701" height="432" alt="Screenshot 2025-09-07 014245" src="https://github.com/user-attachments/assets/297244a5-9134-4148-b373-a9dbac2333d7" />
+
 
 ### Interpretation of Results
 
