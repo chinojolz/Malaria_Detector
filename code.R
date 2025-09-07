@@ -37,7 +37,7 @@ boxplot(Prevalence_Ratio ~ Region, data = malaria_data,
         xlab = "Global Region", ylab = "Prevalence Ratio",
         col = c("lightblue","lightgreen","lightpink","lightyellow"),
         las = 2, notch = TRUE)
-
+abline(h = 1, col = "red", lty = 2) 
 # Prevalence Ratio by Region Using ggplot
 ggplot(malaria_data, aes(x = Region, y = Prevalence_Ratio, fill = Region)) +
 geom_boxplot(alpha = 0.7) +
