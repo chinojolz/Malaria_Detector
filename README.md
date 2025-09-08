@@ -14,7 +14,7 @@ The dataset comes from a systematic review of malaria prevalence using microscop
 ### Tasks
 - Visualize PCR % vs. Microscopy %
 - Add a 1:1 reference line to compare both techniques
-- Compute the Prevalence Ratio (Microscopy Positives ÷ PCR Positives)
+- Compute the Prevalence Ratio (Microscopy Positives/PCR Positives)
 - Generate boxplots of prevalence ratios across global regions
 - Interpret results to determine which region has the highest density of submicroscopic infections
 
