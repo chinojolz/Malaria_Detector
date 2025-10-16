@@ -24,12 +24,17 @@ malaria_data$Prevalence_Ratio <- malaria_data$Microscopy_N_Positive / malaria_da
 head(malaria_data)
 
 # PCR% vs Microscopy% by Region
-ggplot(malaria_data, aes(x = Microscopy_Percent, y = PCR_Percent, color = Region)) +
-geom_point() +
-geom_abline(intercept = 0, slope = 1, linetype = "dotted") +
-facet_wrap(~Region) +
-labs(title = "PCR% vs Microscopy% by Region",
-x = "Microscopy %", y = "PCR %")
+regions <- unique(malaria_data$Region)
+num_regions <- length(regions)
+par(mfrow = c(ceiling(num_regions/2), 2))  # 2 columns of plots
+for (region in regions) {
+  region_data <- subset(malaria_data, Region == region)
+  plot(region_data$Microscopy_Percent, region_data$PCR_Percent,
+       xlab = "Microscopy %", ylab = "PCR %",
+       main = paste("PCR% vs Microscopy% -", region),
+       col = "darkgreen", pch = 19)
+  abline(0, 1, lty = 2, col = "red")
+}
 
 # Prevalence Ratio by Region
 boxplot(Prevalence_Ratio ~ Region, data = malaria_data,
