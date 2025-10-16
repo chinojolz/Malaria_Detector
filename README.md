@@ -1,5 +1,5 @@
 # malaria_detector_project
-Analysis of submicroscopic Plasmodium falciparum infections using microscopy and PCR datasets.
+Analysis of submicroscopic *Plasmodium falciparum* infections using microscopy and PCR datasets.
 
 
 ### Project Overview
@@ -51,22 +51,29 @@ for (region in regions) {
 }
 ```
 
-<img width="708" height="418" alt="Screenshot 2025-10-16 192657" src="https://github.com/user-attachments/assets/90259764-083b-4c15-afd2-1f000b1c06b8" />
+<img width="700" height="432" alt="microscopy%" src="https://github.com/user-attachments/assets/45d48862-3ae3-492d-89f2-7a2ca369bcc6" />
+
 
 ### Prevalence Ratio by Region
 ```r
-ggplot(malaria_data, aes(x = Region, y = Prevalence_Ratio, fill = Region)) +
-geom_boxplot(alpha = 0.7) +
-labs(title = "Prevalence Ratio by Region",
-x = "Region", y = "Prevalence Ratio") 
+region_colors <- rainbow(length(unique(malaria_data$Region)))  
+
+boxplot(Prevalence_Ratio ~ Region, data = malaria_data,
+        main = "Prevalence Ratio by Region",
+        xlab = "Global Region", ylab = "Prevalence Ratio",
+        col = region_colors, las = 2, notch = TRUE)
+
+abline(h = 1, col = "red", lty = 2)
+legend("topright", legend = unique(malaria_data$Region),
+       col = region_colors, pch = 19, cex = 0.8, bty = "n", title = "Regions")
 ```
-<img width="700" height="439" alt="Screenshot 2025-09-07 022407" src="https://github.com/user-attachments/assets/d6a552e4-accc-4be8-a61b-87ac836c92fe" />
+<img width="700" height="432" alt="region" src="https://github.com/user-attachments/assets/efb4c452-88f7-446d-a60e-739def55a0fb" />
 
 
 
 ### Interpretation of Results
 
-The boxplot of prevalence ratios by global region reveals important differences in the density of submicroscopic Plasmodium falciparum infections. South America shows the lowest median prevalence ratio, indicating that microscopy detects very few infections compared to PCR. This means South America has the highest density of submicroscopic infections.
+The boxplot of prevalence ratios by global region reveals important differences in the density of submicroscopic *Plasmodium falciparum* infections. South America shows the lowest median prevalence ratio, indicating that microscopy detects very few infections compared to PCR. This means South America has the highest density of submicroscopic infections.
 
 In contrast, Asia & Oceania and East Africa display intermediate ratios, reflecting a moderate level of submicroscopic infections. **West Africa has the highest prevalence ratio**, suggesting that microscopy performs relatively well in this region, and submicroscopic infections are less frequent compared to other regions.
 
