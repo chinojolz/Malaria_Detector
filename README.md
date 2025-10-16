@@ -1,4 +1,4 @@
-# malaria_detector_project
+<img width="1024" height="768" alt="Bible designs2025" src="https://github.com/user-attachments/assets/3de15d86-498e-4757-ae9e-a384dee41e56" /># malaria_detector_project
 Analysis of submicroscopic Plasmodium falciparum infections using microscopy and PCR datasets.
 
 
@@ -20,11 +20,17 @@ The dataset comes from a systematic review of malaria prevalence using microscop
 
 ### Visualization of PCR % against microscopy %
 ```r
-plot(malaria_data$PCR_Percent, malaria_data$Microscopy_Percent,
-     xlab = "Microscopy %", ylab = "PCR %",
-     main = "PCR vs Microscopy Prevalence",
-     col = "blue", pch = 19)
-abline(0, 1, lty = 2, col = "red")
+regions <- unique(malaria_data$Region)
+num_regions <- length(regions)
+par(mfrow = c(ceiling(num_regions/2), 2))  # 2 columns of plots
+for (region in regions) {
+  region_data <- subset(malaria_data, Region == region)
+  plot(region_data$Microscopy_Percent, region_data$PCR_Percent,
+       xlab = "Microscopy %", ylab = "PCR %",
+       main = paste("PCR% vs Microscopy% -", region),
+       col = "darkgreen", pch = 19)
+  abline(0, 1, lty = 2, col = "red")
+}
 ```
 <img width="699" height="435" alt="Screenshot 2025-09-07 022117" src="https://github.com/user-attachments/assets/9c72d1d1-d7f8-4876-9f4f-3e6daa754fae" />
 
@@ -44,7 +50,8 @@ facet_wrap(~Region) +
 labs(title = "PCR% vs Microscopy% by Region",
 x = "Microscopy %", y = "PCR %")
 ```
-<img width="701" height="433" alt="Screenshot 2025-09-07 022326" src="https://github.com/user-attachments/assets/74874716-0570-4df0-bf9a-b5de774bc2a8" />
+
+<img width="708" height="418" alt="Screenshot 2025-10-16 192657" src="https://github.com/user-attachments/assets/90259764-083b-4c15-afd2-1f000b1c06b8" />
 
 ### Prevalence Ratio by Region
 ```r
