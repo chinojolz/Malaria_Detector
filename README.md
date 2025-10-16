@@ -1,4 +1,4 @@
-<img width="1024" height="768" alt="Bible designs2025" src="https://github.com/user-attachments/assets/3de15d86-498e-4757-ae9e-a384dee41e56" /># malaria_detector_project
+# malaria_detector_project
 Analysis of submicroscopic Plasmodium falciparum infections using microscopy and PCR datasets.
 
 
