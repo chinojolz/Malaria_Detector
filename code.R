@@ -44,8 +44,14 @@ boxplot(Prevalence_Ratio ~ Region, data = malaria_data,
         las = 2, notch = TRUE)
 abline(h = 1, col = "red", lty = 2) 
 # Prevalence Ratio by Region Using ggplot
-ggplot(malaria_data, aes(x = Region, y = Prevalence_Ratio, fill = Region)) +
-geom_boxplot(alpha = 0.7) +
-labs(title = "Prevalence Ratio by Region",
-x = "Region", y = "Prevalence Ratio") 
+region_colors <- rainbow(length(unique(malaria_data$Region)))  
+
+boxplot(Prevalence_Ratio ~ Region, data = malaria_data,
+        main = "Prevalence Ratio by Region",
+        xlab = "Global Region", ylab = "Prevalence Ratio",
+        col = region_colors, las = 2, notch = TRUE)
+
+abline(h = 1, col = "red", lty = 2)
+legend("topright", legend = unique(malaria_data$Region),
+       col = region_colors, pch = 19, cex = 0.8, bty = "n", title = "Regions")
 
